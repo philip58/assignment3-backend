@@ -11,14 +11,26 @@ const seedDB = async () => {
     lastname: "Fernandez",
     department: "Web Dev",
   });
+  const dummyEmployee3 = await Employee.create({
+    firstname: "John",
+    lastname: "Doe",
+    department: "Law",
+  });
 
-  const dummyTask = await Task.create({
-    description: "Clean",
+  const dummyTask1 = await Task.create({
+    description: "Sort",
+    prioritylevel: "Medium",
+    completionstatus: false,
+  });
+
+  const dummyTask2 = await Task.create({
+    description: "Check-In",
     prioritylevel: "High",
     completionstatus: false,
   });
 
-  await dummyTask.setEmployee(dummyEmployee);
+  await dummyTask1.setEmployee(dummyEmployee);
+  await dummyTask2.setEmployee(dummyEmployee2);
 };
 
 module.exports = seedDB;
